@@ -1,0 +1,37 @@
+{
+    "name": "computercraft-types",
+    "version": "1.0.0",
+    "description": "TypeScript types for ComputerCraft.",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BlockOG/TS-CC-Types.git"
+    },
+    "keywords": [
+        "computercraft",
+        "cc",
+        "craftos",
+        "tstl"
+    ],
+    "author": "BlockOG",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/BlockOG/TS-CC-Types/issues"
+    },
+    "homepage": "https://github.com/BlockOG/TS-CC-Types#readme",
+    "devDependencies": {
+        "prettier": "^2.8.4",
+        "prettier-plugin-jsdoc": "^0.4.2",
+        "typescript": "^4.9.5",
+        "typescript-to-lua": "^1.13.1"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "useTabs": false,
+        "singleQuote": false,
+        "endOfLine": "lf",
+        "printWidth": 120,
+        "trailingComma": "all",
+        "proseWrap": "always"
+    }
+}

@@ -1,0 +1,1 @@
+/// <reference path="./craftos/index.d.ts" />
