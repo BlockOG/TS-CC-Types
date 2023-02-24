@@ -153,7 +153,7 @@ declare interface IItem {
 
 declare interface IItemDetail extends IItem {
     displayName: string;
-    itemGroups: string[];
+    itemGroups: { id?: string; displayName: string }[];
     rawName: string;
     tags: LuaSet<string>;
 
