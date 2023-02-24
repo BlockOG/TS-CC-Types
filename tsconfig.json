@@ -5,6 +5,12 @@
         "moduleResolution": "node16",
         "allowJs": false,
         "forceConsistentCasingInFileNames": true,
-        "strict": true
+        "strict": true,
+        "types": ["@typescript-to-lua/language-extensions"]
+    },
+    "tstl": {
+        "noImplicitGlobalVariables": true,
+        "sourceMapTraceback": true,
+        "luaLibImport": "inline"
     }
 }

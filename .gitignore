@@ -1,3 +1,6 @@
-index.ts
 node_modules/
 package-lock.json
+
+index.ts
+index.lua
+lualib_bundle.lua
