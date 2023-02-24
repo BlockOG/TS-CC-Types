@@ -217,4 +217,5 @@ declare namespace peripheral {
     ): LuaMultiReturn<T[]>;
 }
 
+/** @noSelf */
 declare interface Peripheral {}

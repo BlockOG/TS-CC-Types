@@ -3,7 +3,17 @@
 /**
  * Methods for interacting with inventories.
  *
+ * | API                                                | Description                                                       |
+ * | -------------------------------------------------- | ----------------------------------------------------------------- |
+ * | size()                                             | Get the size of this inventory.                                   |
+ * | list()                                             | List all items in this inventory.                                 |
+ * | getItemDetail(slot)                                | Get detailed information about an item.                           |
+ * | getItemLimit(slot)                                 | Get the maximum number of items which can be stored in this slot. |
+ * | pushItems(toName, fromSlot [, limit [, toSlot]])   | Push items from one inventory to another connected one.           |
+ * | pullItems(fromName, fromSlot [, limit [, toSlot]]) | Pull items from a connected inventory into this one.              |
+ *
  * @since 1.94.0
+ * @noSelf
  */
 declare interface InventoryPeripheral extends Peripheral {
     /**
@@ -26,7 +36,7 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Find an adjacent chest and print all items in it.
-     *     let chest = peripheral.find<IInventory>("minecraft:chest");
+     *     let chest = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     for (let [slot, item] of pairs(chest.list())) {
      *         print("%d x %s in slot %d".format(item.count, item.name, slot));
      *     }
@@ -48,7 +58,7 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Print some information about the first in a chest.
-     *     let chest = peripheral.find("minecraft:chest");
+     *     let chest = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     let item = chest.getItemDetail(1);
      *     if (item == undefined) {
      *         print("No item");
@@ -81,7 +91,7 @@ declare interface InventoryPeripheral extends Peripheral {
      * @since 1.96.0
      * @example
      *     // Count the maximum number of items an adjacent chest can hold.
-     *     let chest = peripheral.find("minecraft:chest");
+     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     let total = 0;
      *     for (let i = 1; i <= chest.size(); i++) {
      *         total += chest.getItemLimit(i);
@@ -102,8 +112,8 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Wrap two chests, and push an item from one to another.
-     *     let chest_a = peripheral.wrap("minecraft:chest_0");
-     *     let chest_b = peripheral.wrap("minecraft:chest_1");
+     *     let chest_a = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
+     *     let chest_b = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
      *
      *     chest_a.pushItems(peripheral.getName(chest_b), 1);
      *
@@ -128,8 +138,8 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Wrap two chests, and push an item from one to another.
-     *     let chest_a = peripheral.wrap("minecraft:chest_0");
-     *     let chest_b = peripheral.wrap("minecraft:chest_1");
+     *     let chest_a = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
+     *     let chest_b = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
      *
      *     chest_a.pullItems(peripheral.getName(chest_b), 1);
      *
@@ -146,11 +156,13 @@ declare interface InventoryPeripheral extends Peripheral {
     pullItems(fromName: string, fromSlot: number, limit?: number, toSlot?: number): number;
 }
 
+/** @noSelf */
 declare interface BasicItem {
     count: number;
     name: string;
 }
 
+/** @noSelf */
 declare interface DetailedItem extends BasicItem {
     displayName: string;
     itemGroups: { id?: string; displayName: string }[];
@@ -164,6 +176,7 @@ declare interface DetailedItem extends BasicItem {
     durability?: number;
 }
 
+/** @noSelf */
 declare interface Enchantment {
     displayName: string;
     level: number;
