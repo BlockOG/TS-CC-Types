@@ -2,3 +2,4 @@
 /// <reference path="./colors.d.ts" />
 /// <reference path="./colours.d.ts" />
 /// <reference path="./os.d.ts" />
+/// <reference path="./peripheral.d.ts" />
