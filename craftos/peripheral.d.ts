@@ -129,7 +129,7 @@ declare namespace peripheral {
      * @changed 1.88.0 Accepts a wrapped peripheral as an argument.
      * @changed 1.99 Now returns multiple types.
      */
-    function getType(peripheral: string | IPeripheral): string[] | undefined;
+    function getType(peripheral: string | Peripheral): string[] | undefined;
 
     /**
      * Check if a peripheral is of a particular type.
@@ -139,7 +139,7 @@ declare namespace peripheral {
      * @param peripheral_type The type to check.
      * @returns If a peripheral has a particular type, or `undefined` if it is not present.
      */
-    function hasType(peripheral: string | IPeripheral, peripheral_type: string): boolean | undefined;
+    function hasType(peripheral: string | Peripheral, peripheral_type: string): boolean | undefined;
 
     /**
      * Get all available methods for the peripheral with the given name.
@@ -156,7 +156,7 @@ declare namespace peripheral {
      * @param peripheral The peripheral to get the name of.
      * @returns The name of the given peripheral.
      */
-    function getName(peripheral: IPeripheral): string;
+    function getName(peripheral: Peripheral): string;
 
     /**
      * Call a method on the peripheral with the given name.
@@ -185,7 +185,7 @@ declare namespace peripheral {
      * @returns The table containing the peripheral's methods, or `undefined` if there is no peripheral present with the
      *   given name.
      */
-    function wrap<T extends IPeripheral>(name: string): T | undefined;
+    function wrap<T extends Peripheral>(name: string): T | undefined;
 
     /**
      * Find all peripherals of a specific type, and return the wrapped peripherals.
@@ -211,10 +211,10 @@ declare namespace peripheral {
      *   be included in the result.
      * @returns 0 or more wrapped peripherals matching the given filters.
      */
-    function find<T extends IPeripheral>(
+    function find<T extends Peripheral>(
         ty: string,
         filter?: (name: string, peripheral: T) => boolean,
     ): LuaMultiReturn<T[]>;
 }
 
-declare interface IPeripheral {}
+declare interface Peripheral {}

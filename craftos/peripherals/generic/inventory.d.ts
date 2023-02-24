@@ -5,7 +5,7 @@
  *
  * @since 1.94.0
  */
-declare interface IInventory extends IPeripheral {
+declare interface InventoryPeripheral extends Peripheral {
     /**
      * Get the size of this inventory.
      *
@@ -26,7 +26,7 @@ declare interface IInventory extends IPeripheral {
      *
      * @example
      *     // Find an adjacent chest and print all items in it.
-     *     let chest = peripheral.find("minecraft:chest");
+     *     let chest = peripheral.find<IInventory>("minecraft:chest");
      *     for (let [slot, item] of pairs(chest.list())) {
      *         print("%d x %s in slot %d".format(item.count, item.name, slot));
      *     }
@@ -34,7 +34,7 @@ declare interface IInventory extends IPeripheral {
      * @param inventory The current inventory.
      * @returns All items in this inventory.
      */
-    list(): LuaMap<number, IItem>;
+    list(): LuaMap<number, BasicItem>;
 
     /**
      * Get detailed information about an item.
@@ -70,7 +70,7 @@ declare interface IInventory extends IPeripheral {
      * @returns Information about the item in this slot, or `undefined` if not present.
      * @throws If the slot is out of range.
      */
-    getItemDetail(slot: number): IItemDetail | undefined;
+    getItemDetail(slot: number): DetailedItem | undefined;
 
     /**
      * Get the maximum number of items which can be stored in this slot.
@@ -146,25 +146,25 @@ declare interface IInventory extends IPeripheral {
     pullItems(fromName: string, fromSlot: number, limit?: number, toSlot?: number): number;
 }
 
-declare interface IItem {
+declare interface BasicItem {
     count: number;
     name: string;
 }
 
-declare interface IItemDetail extends IItem {
+declare interface DetailedItem extends BasicItem {
     displayName: string;
     itemGroups: { id?: string; displayName: string }[];
     rawName: string;
     tags: LuaSet<string>;
 
-    enchantments?: IEnchantment[];
+    enchantments?: Enchantment[];
 
     damage?: number;
     maxDamage?: number;
     durability?: number;
 }
 
-declare interface IEnchantment {
+declare interface Enchantment {
     displayName: string;
     level: number;
     name: string;
