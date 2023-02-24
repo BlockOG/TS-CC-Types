@@ -36,7 +36,7 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Find an adjacent chest and print all items in it.
-     *     let chest = peripheral.find<InventoryPeripheral>("minecraft:chest");
+     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     for (let [slot, item] of pairs(chest.list())) {
      *         print("%d x %s in slot %d".format(item.count, item.name, slot));
      *     }
@@ -58,7 +58,7 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      * @example
      *     // Print some information about the first in a chest.
-     *     let chest = peripheral.find<InventoryPeripheral>("minecraft:chest");
+     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     let item = chest.getItemDetail(1);
      *     if (item == undefined) {
      *         print("No item");
