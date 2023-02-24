@@ -22,13 +22,16 @@ declare const _G: typeof globalThis;
  * 0.05 seconds. If you are using coroutines or the parallel API (parallel), it will only pause execution of the current
  * thread, not the whole program.
  *
- * Tip: Because sleep internally uses timers, it is a function that yields. This means that you can use it to prevent
- * "Too long without yielding" errors. However, as the minimum sleep time is 0.05 seconds, it will slow your program
- * down.
+ * #### TIP
  *
- * Caution: Internally, this function queues and waits for a timer event (using os.startTimer), however it does not
- * listen for any other events. This means that any event that occurs while sleeping will be entirely discarded. If you
- * need to receive events while sleeping, consider using timers (os.startTimer), or the parallel API (parallel).
+ * Because sleep internally uses timers, it is a function that yields. This means that you can use it to prevent "Too
+ * long without yielding" errors. However, as the minimum sleep time is 0.05 seconds, it will slow your program down. |
+ *
+ * #### CAUTION
+ *
+ * Internally, this function queues and waits for a timer event (using os.startTimer), however it does not listen for
+ * any other events. This means that any event that occurs while sleeping will be entirely discarded. If you need to
+ * receive events while sleeping, consider using timers (os.startTimer), or the parallel API (parallel).
  *
  * @example
  *     // Sleep for three seconds.
