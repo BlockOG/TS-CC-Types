@@ -1,7 +1,7 @@
 /**
  * An alternative version of `colors` for lovers of British spelling.
  *
- * | Function  | Description |
+ * | API       | Description |
  * | --------- | ----------- |
  * | grey      | Grey.       |
  * | lightGrey | Light grey. |

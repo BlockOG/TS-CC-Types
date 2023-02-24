@@ -3,9 +3,9 @@
 /**
  * Functions in the global environment, defined in `bios.lua`. This does not include standard Lua functions.
  *
- * | Function                                                   | Description                                                                                   |
+ * | API                                                        | Description                                                                                   |
  * | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
- * | sleep(time)                                                | Pauses execution for the specified number of seconds.                                         |
+ * | sleep([time])                                              | Pauses execution for the specified number of seconds.                                         |
  * | write(text)                                                | Writes a line of text to the screen without a newline at the end, wrapping text if necessary. |
  * | print(...)                                                 | Prints the specified values to the screen separated by spaces, wrapping if necessary.         |
  * | printError(...)                                            | Prints the specified values to the screen in red, separated by spaces, wrapping if necessary. |
@@ -36,7 +36,7 @@ declare const _G: typeof globalThis;
  *     sleep(3);
  *     print("Done!");
  *
- * @param time The number of seconds to sleep for, rounded up to the nearest multiple of 0.05.
+ * @param [time] The number of seconds to sleep for, rounded up to the nearest multiple of 0.05.
  * @see os.startTimer
  */
 declare function sleep(time?: number): void;

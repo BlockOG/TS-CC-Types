@@ -13,7 +13,7 @@
  *
  * Grayscale colors are calculated by taking the average of the three components, i.e. `(red + green + blue) / 3`.
  *
- * | Function             | Description                                                                                         |
+ * | API                  | Description                                                                                         |
  * | -------------------- | --------------------------------------------------------------------------------------------------- |
  * | white = 0x1          | White: Written as `0` in paint files and `term.blit`, has a default terminal color of #F0F0F0.      |
  * | orange = 0x2         | Orange: Written as `1` in paint files and `term.blit`, has a default terminal color of #F2B233.     |
@@ -36,7 +36,7 @@
  * | test(colors, color)  | Tests whether `color` is contained within `colors`.                                                 |
  * | packRGB(r, g, b)     | Combine a three-color RGB value into one hexadecimal representation.                                |
  * | unpackRGB(rgb)       | Separate a hexadecimal RGB color into its three constituent channels.                               |
- * | rgb8(...)            | Either calls `colors.packRGB` or `colors.unpackRGB`, depending on how many arguments it receives.   |
+ * | ~~rgb8(...)~~        | Either calls `colors.packRGB` or `colors.unpackRGB`, depending on how many arguments it receives.   |
  *
  * @see colours
  */
