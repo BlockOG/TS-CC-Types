@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * The `os` API allows interacting with the current computer.
  *

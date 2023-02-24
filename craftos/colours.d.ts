@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * An alternative version of `colors` for lovers of British spelling.
  *

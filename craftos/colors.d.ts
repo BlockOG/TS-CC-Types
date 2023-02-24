@@ -1,3 +1,5 @@
+/** @noSelfInFile */
+
 /**
  * Constants and functions for color values, suitable for working with `term` and `redstone`.
  *
