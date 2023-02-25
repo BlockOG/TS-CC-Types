@@ -18,6 +18,20 @@ module.exports = {
     rules: {
         // Insert changed or disabled rules here, if necessary.
         "jsdoc/check-values": "off",
+        "no-underscore-dangle": "off",
         "@typescript-eslint/triple-slash-reference": "off",
+        /**
+         * Documentation:
+         * https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names
+         *
+         * Reports invalid block tag names. Since "@changed" is not an official tag, we have to
+         * manually add it here. And also the compiler annotations.
+         */
+        "jsdoc/check-tag-names": [
+            "warn",
+            {
+                definedTags: ["changed", "noSelf", "noSelfInFile"],
+            },
+        ],
     },
 };

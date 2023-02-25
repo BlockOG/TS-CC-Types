@@ -1,7 +1,7 @@
 /** @noSelfInFile */
 
 /**
- * An alternative version of `colors` for lovers of British spelling.
+ * An alternative version of {@link colors} for lovers of British spelling.
  *
  * | API               | Description |
  * | ----------------- | ----------- |
@@ -9,43 +9,60 @@
  * | {@link lightGrey} | Light grey. |
  *
  * @since 1.2
- * @see colors
+ * @see {@link colors}
+ * @noSelf
  */
-declare namespace colours {
-    const white: number;
-    const orange: number;
-    const magenta: number;
-    const lightBlue: number;
-    const yellow: number;
-    const lime: number;
-    const pink: number;
+declare interface Colours {
+    white: number;
+    orange: number;
+    magenta: number;
+    lightBlue: number;
+    yellow: number;
+    lime: number;
+    pink: number;
     /**
-     * Grey. Written as `7` in paint files and `term.blit`, has a default terminal colour of #4C4C4C.
+     * Grey. Written as `7` in paint files and {@link term.blit}, has a default terminal colour of
+     * #4C4C4C.
      *
      * @see {@link colors.gray}
      */
-    const grey: number;
+    grey: number;
     /**
-     * Light grey. Written as `8` in paint files and `term.blit`, has a default terminal colour of #999999.
+     * Light grey. Written as `8` in paint files and {@link term.blit}, has a default terminal
+     * colour of #999999.
      *
      * @see {@link colors.lightGray}
      */
-    const lightGrey: number;
-    const cyan: number;
-    const purple: number;
-    const blue: number;
-    const brown: number;
-    const green: number;
-    const red: number;
-    const black: number;
+    lightGrey: number;
+    cyan: number;
+    purple: number;
+    blue: number;
+    brown: number;
+    green: number;
+    red: number;
+    black: number;
 
-    function combine(...colors: number[]): number;
-    function subtract(color: number, ...colors: number[]): number;
-    function test(colors: number, color: number): boolean;
-    function packRGB(r: number, g: number, b: number): number;
-    function unpackRGB(rgb: number): LuaMultiReturn<[number, number, number]>;
+    combine(...colors: number[]): number;
+    subtract(color: number, ...colors: number[]): number;
+    test(colors: number, color: number): boolean;
+    packRGB(r: number, g: number, b: number): number;
+    unpackRGB(rgb: number): LuaMultiReturn<[number, number, number]>;
     /** @deprecated */
-    function rgb8(rgb: number): LuaMultiReturn<[number, number, number]>;
-    function rgb8(r: number, g: number, b: number): LuaMultiReturn<[number]>;
-    function toBlit(color: number): string;
+    rgb8(rgb: number): LuaMultiReturn<[number, number, number]>;
+    rgb8(r: number, g: number, b: number): LuaMultiReturn<[number]>;
+    toBlit(color: number): string;
 }
+
+/**
+ * An alternative version of {@link colors} for lovers of British spelling.
+ *
+ * | API               | Description |
+ * | ----------------- | ----------- |
+ * | {@link grey}      | Grey.       |
+ * | {@link lightGrey} | Light grey. |
+ *
+ * @since 1.2
+ * @see {@link colors}
+ * @noSelf
+ */
+declare const colours: Colours;
