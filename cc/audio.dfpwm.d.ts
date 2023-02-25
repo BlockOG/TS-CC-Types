@@ -17,16 +17,16 @@
  * ## Converting audio to DFPWM
  *
  * DFPWM is not a popular file format and so standard audio processing tools will not have an option to export to it.
- * Instead, you can convert audio files online using [music.madefor.cc](https://music.madefor.cc/), the [LionRay Wav
- * Converter](https://github.com/gamax92/LionRay/) Java application or development builds of
- * [FFmpeg](https://ffmpeg.org).
+ * Instead, you can convert audio files online using {@link https://music.madefor.cc/ music.madefor.cc}, the
+ * {@link https://github.com/gamax92/LionRay/ LionRay Wav Converter} Java application or development builds of
+ * {@link https://ffmpeg.org FFmpeg}.
  *
- * | API            | Description                                                           |
- * | -------------- | --------------------------------------------------------------------- |
- * | make_encoder() | Create a new encoder for converting PCM audio data into DFPWM.        |
- * | encode(input)  | A convenience function for encoding a complete file of audio at once. |
- * | make_decoder() | Create a new decoder for converting DFPWM into PCM audio data.        |
- * | decode(input)  | A convenience function for decoding a complete file of audio at once. |
+ * | API                                 | Description                                                           |
+ * | ----------------------------------- | --------------------------------------------------------------------- |
+ * | {@link make_encoder make_encoder()} | Create a new encoder for converting PCM audio data into DFPWM.        |
+ * | {@link encode encode(input)}        | A convenience function for encoding a complete file of audio at once. |
+ * | {@link make_decoder make_decoder()} | Create a new decoder for converting DFPWM into PCM audio data.        |
+ * | {@link decode decode(input)}        | A convenience function for decoding a complete file of audio at once. |
  *
  * @since 1.100.0
  * @example
@@ -51,7 +51,7 @@
  *     }
  *     out.close();
  *
- * @see [Playing audio with speakers](https://tweaked.cc/guide/speaker_audio.html) Gives a more general introduction to audio processing and the speaker.
+ * @see {@link https://tweaked.cc/guide/speaker_audio.html Playing audio with speakers} Gives a more general introduction to audio processing and the speaker.
  * @see speaker.playAudio To play the decoded audio data.
  */
 declare module "cc.audio.dfpwm" {

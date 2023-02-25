@@ -6,7 +6,8 @@
         "allowJs": false,
         "forceConsistentCasingInFileNames": true,
         "strict": true,
-        "types": ["@typescript-to-lua/language-extensions"]
+        "types": ["@typescript-to-lua/language-extensions"],
+        "lib": ["ES5", "ES2015.Iterable"]
     },
     "tstl": {
         "noImplicitGlobalVariables": true,

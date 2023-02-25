@@ -1,34 +1,34 @@
 /** @noSelfInFile */
 
 /**
- * The `os` API allows interacting with the current computer.
+ * The {@link os} API allows interacting with the current computer.
  *
- * | API                       | Description                                                                                   |
- * | ------------------------- | --------------------------------------------------------------------------------------------- |
- * | ~~loadAPI(path)~~         | Loads the given API into the global environment.                                              |
- * | ~~unloadAPI(name)~~       | Unloads an API which was loaded by `os.loadAPI`.                                              |
- * | pullEvent([filter])       | Pause execution of the current thread and waits for any events matching `filter`.             |
- * | pullEventRaw([filter])    | Pause execution of the current thread and waits for events, including the `terminate` event.  |
- * | sleep([time])             | Pauses execution for the specified number of seconds, alias of `_G.sleep`.                    |
- * | version()                 | Get the current CraftOS version (for example, `CraftOS 1.8`).                                 |
- * | run(env, path, ...)       | Run the program at the given path with the specified environment and arguments.               |
- * | queueEvent(name, ...)     | Adds an event to the event queue.                                                             |
- * | startTimer(timer)         | Starts a timer that will run for the specified number of seconds.                             |
- * | cancelTimer(token)        | Cancels a timer previously started with startTimer.                                           |
- * | setAlarm(time)            | Sets an alarm that will fire at the specified in-game time.                                   |
- * | cancelAlarm(token)        | Cancels an alarm previously started with setAlarm.                                            |
- * | shutdown()                | Shuts down the computer immediately.                                                          |
- * | reboot()                  | Reboots the computer immediately.                                                             |
- * | getComputerID()           | Returns the ID of the computer.                                                               |
- * | computerID()              | Returns the ID of the computer.                                                               |
- * | getComputerLabel()        | Returns the label of the computer, or `undefined` if none is set.                             |
- * | computerLabel()           | Returns the label of the computer, or `undefined` if none is set.                             |
- * | setComputerLabel([label]) | Set the label of this computer.                                                               |
- * | clock()                   | Returns the number of seconds that the computer has been running.                             |
- * | time([locale])            | Returns the current time depending on the string passed in.                                   |
- * | day([args])               | Returns the day depending on the locale specified.                                            |
- * | epoch([args])             | Returns the number of milliseconds since an epoch depending on the locale.                    |
- * | date([format [, time]])   | Returns a date string (or table) using a specified format string and optional time to format. |
+ * | API                                                | Description                                                                                   |
+ * | -------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+ * | {@link loadAPI ~~loadAPI(path)~~}                  | Loads the given API into the global environment.                                              |
+ * | {@link unloadAPI ~~unloadAPI(name)~~}              | Unloads an API which was loaded by {@link os.loadAPI}.                                        |
+ * | {@link pullEvent pullEvent([filter])}              | Pause execution of the current thread and waits for any events matching `filter`.             |
+ * | {@link pullEventRaw pullEventRaw([filter])}        | Pause execution of the current thread and waits for events, including the `terminate` event.  |
+ * | {@link sleep sleep([time])}                        | Pauses execution for the specified number of seconds, alias of {@link _G.sleep}.       |
+ * | {@link version version()}                          | Get the current CraftOS version (for example, `CraftOS 1.8`).                                 |
+ * | {@link run run(env, path, ...)}                    | Run the program at the given path with the specified environment and arguments.               |
+ * | {@link queueEvent queueEvent(name, ...)}           | Adds an event to the event queue.                                                             |
+ * | {@link startTimer startTimer(timer)}               | Starts a timer that will run for the specified number of seconds.                             |
+ * | {@link cancelTimer cancelTimer(token)}             | Cancels a timer previously started with startTimer.                                           |
+ * | {@link setAlarm setAlarm(time)}                    | Sets an alarm that will fire at the specified in-game time.                                   |
+ * | {@link cancelAlarm cancelAlarm(token)}             | Cancels an alarm previously started with setAlarm.                                            |
+ * | {@link shutdown shutdown()}                        | Shuts down the computer immediately.                                                          |
+ * | {@link reboot reboot()}                            | Reboots the computer immediately.                                                             |
+ * | {@link getComputerID getComputerID()}              | Returns the ID of the computer.                                                               |
+ * | {@link computerID computerID()}                    | Returns the ID of the computer.                                                               |
+ * | {@link getComputerLabel getComputerLabel()}        | Returns the label of the computer, or `undefined` if none is set.                             |
+ * | {@link computerLabel computerLabel()}              | Returns the label of the computer, or `undefined` if none is set.                             |
+ * | {@link setComputerLabel setComputerLabel([label])} | Set the label of this computer.                                                               |
+ * | {@link clock clock()}                              | Returns the number of seconds that the computer has been running.                             |
+ * | {@link time time([locale])}                        | Returns the current time depending on the string passed in.                                   |
+ * | {@link day day([args])}                            | Returns the day depending on the locale specified.                                            |
+ * | {@link epoch epoch([args])}                        | Returns the number of milliseconds since an epoch depending on the locale.                    |
+ * | {@link date date([format][, time])}                | Returns a date string (or table) using a specified format string and optional time to format. |
  */
 declare namespace os {
     /**

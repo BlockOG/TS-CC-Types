@@ -3,15 +3,15 @@
 /**
  * Functions in the global environment, defined in `bios.lua`. This does not include standard Lua functions.
  *
- * | API                                                        | Description                                                                                   |
- * | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
- * | sleep([time])                                              | Pauses execution for the specified number of seconds.                                         |
- * | write(text)                                                | Writes a line of text to the screen without a newline at the end, wrapping text if necessary. |
- * | print(...)                                                 | Prints the specified values to the screen separated by spaces, wrapping if necessary.         |
- * | printError(...)                                            | Prints the specified values to the screen in red, separated by spaces, wrapping if necessary. |
- * | read([replaceChar [, history [, completeFn [, default]]]]) | Reads user input from the terminal.                                                           |
- * | \_HOST                                                     | Stores the current ComputerCraft and Minecraft versions.                                      |
- * | \_CC_DEFAULT_SETTINGS                                      | The default computer settings as defined in the ComputerCraft configuration.                  |
+ * | API                                                                  | Description                                                                                   |
+ * | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+ * | {@link sleep sleep([time])}                                          | Pauses execution for the specified number of seconds.                                         |
+ * | {@link write write(text)}                                            | Writes a line of text to the screen without a newline at the end, wrapping text if necessary. |
+ * | {@link print print(...)}                                             | Prints the specified values to the screen separated by spaces, wrapping if necessary.         |
+ * | {@link printError printError(...)}                                   | Prints the specified values to the screen in red, separated by spaces, wrapping if necessary. |
+ * | {@link read read([replaceChar][, history][, completeFn][, default])} | Reads user input from the terminal.                                                           |
+ * | {@link _HOST}                                                        | Stores the current ComputerCraft and Minecraft versions.                                      |
+ * | {@link _CC_DEFAULT_SETTINGS}                                         | The default computer settings as defined in the ComputerCraft configuration.                  |
  */
 declare const _G: typeof globalThis;
 
@@ -19,8 +19,8 @@ declare const _G: typeof globalThis;
  * Pauses execution for the specified number of seconds.
  *
  * As it waits for a fixed amount of world ticks, `time` will automatically be rounded up to the nearest multiple of
- * 0.05 seconds. If you are using coroutines or the parallel API (parallel), it will only pause execution of the current
- * thread, not the whole program.
+ * 0.05 seconds. If you are using coroutines or the {@link parallel parallel API}, it will only pause execution of the
+ * current thread, not the whole program.
  *
  * #### TIP
  *
@@ -29,9 +29,9 @@ declare const _G: typeof globalThis;
  *
  * #### CAUTION
  *
- * Internally, this function queues and waits for a timer event (using os.startTimer), however it does not listen for
- * any other events. This means that any event that occurs while sleeping will be entirely discarded. If you need to
- * receive events while sleeping, consider using timers (os.startTimer), or the parallel API (parallel).
+ * Internally, this function queues and waits for a timer event (using {@link os.startTimer}), however it does not listen
+ * for any other events. This means that any event that occurs while sleeping will be entirely discarded. If you need to
+ * receive events while sleeping, consider using {@link os.startTimer timers}, or the {@link parallel parallel API}.
  *
  * @example
  *     // Sleep for three seconds.
@@ -40,7 +40,7 @@ declare const _G: typeof globalThis;
  *     print("Done!");
  *
  * @param [time] The number of seconds to sleep for, rounded up to the nearest multiple of 0.05.
- * @see os.startTimer
+ * @see {@link os.startTimer}
  */
 declare function sleep(time?: number): void;
 
@@ -52,7 +52,7 @@ declare function sleep(time?: number): void;
  *
  * @param text The text to write to the string
  * @returns The number of lines written
- * @see print A wrapper around write that adds a newline and accepts multiple arguments
+ * @see {@link _G.print print} A wrapper around write that adds a newline and accepts multiple arguments
  */
 declare function write(text: string): number;
 

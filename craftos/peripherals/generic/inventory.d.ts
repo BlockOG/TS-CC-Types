@@ -3,14 +3,14 @@
 /**
  * Methods for interacting with inventories.
  *
- * | API                                                | Description                                                       |
- * | -------------------------------------------------- | ----------------------------------------------------------------- |
- * | size()                                             | Get the size of this inventory.                                   |
- * | list()                                             | List all items in this inventory.                                 |
- * | getItemDetail(slot)                                | Get detailed information about an item.                           |
- * | getItemLimit(slot)                                 | Get the maximum number of items which can be stored in this slot. |
- * | pushItems(toName, fromSlot [, limit [, toSlot]])   | Push items from one inventory to another connected one.           |
- * | pullItems(fromName, fromSlot [, limit [, toSlot]]) | Pull items from a connected inventory into this one.              |
+ * | API                                                                 | Description                                                       |
+ * | ------------------------------------------------------------------- | ----------------------------------------------------------------- |
+ * | {@link size size()}                                                 | Get the size of this inventory.                                   |
+ * | {@link list list()}                                                 | List all items in this inventory.                                 |
+ * | {@link getItemDetail getItemDetail(slot)}                           | Get detailed information about an item.                           |
+ * | {@link getItemLimit getItemLimit(slot)}                             | Get the maximum number of items which can be stored in this slot. |
+ * | {@link pushItems pushItems(toName, fromSlot [, limit][, toSlot])}   | Push items from one inventory to another connected one.           |
+ * | {@link pullItems pullItems(fromName, fromSlot [, limit][, toSlot])} | Pull items from a connected inventory into this one.              |
  *
  * @since 1.94.0
  * @noSelf
@@ -27,9 +27,9 @@ declare interface InventoryPeripheral extends Peripheral {
      * List all items in this inventory. This returns a table, with an entry for each slot.
      *
      * Each item in the inventory is represented by a table containing some basic information, much like
-     * `turtle.getItemDetail` includes. More information can be fetched with `getItemDetail`. The table contains the
-     * item `name`, the `count` and an a (potentially undefined) hash of the item's `nbt.` This NBT data doesn't contain
-     * anything useful, but allows you to distinguish identical items.
+     * {@link turtle.getItemDetail} includes. More information can be fetched with {@link getItemDetail}. The table
+     * contains the item `name`, the `count` and an a (potentially undefined) hash of the item's `nbt`. This NBT data
+     * doesn't contain anything useful, but allows you to distinguish identical items.
      *
      * The returned table is sparse, and so empty slots will be `undefined` - it is recommended to loop over using
      * `pairs` rather than `ipairs`.
@@ -38,7 +38,7 @@ declare interface InventoryPeripheral extends Peripheral {
      *     // Find an adjacent chest and print all items in it.
      *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
      *     for (let [slot, item] of pairs(chest.list())) {
-     *         print("%d x %s in slot %d".format(item.count, item.name, slot));
+     *         print(`${item.count} x ${item.name} in slot ${slot}`);
      *     }
      *
      * @param inventory The current inventory.
@@ -49,12 +49,12 @@ declare interface InventoryPeripheral extends Peripheral {
     /**
      * Get detailed information about an item.
      *
-     * The returned information contains the same information as each item in `list`, as well as additional details like
-     * the display name (`displayName`), item groups (`itemGroups`), which are the creative tabs an item will appear
-     * under, and item and item durability (`damage`, `maxDamage`, `durability`).
+     * The returned information contains the same information as each item in {@link list}, as well as additional details
+     * like the display name (`displayName`), item groups (`itemGroups`), which are the creative tabs an item will
+     * appear under, and item and item durability (`damage`, `maxDamage`, `durability`).
      *
      * Some items include more information (such as enchantments) - it is recommended to print it out using
-     * `textutils.serialize` or in the Lua REPL, to explore what is available.
+     * {@link textutils.serialize} or in the Lua REPL, to explore what is available.
      *
      * @example
      *     // Print some information about the first in a chest.
@@ -65,15 +65,15 @@ declare interface InventoryPeripheral extends Peripheral {
      *         return;
      *     }
      *
-     *     print("%s (%s)".format(item.displayName, item.name));
-     *     print("Count: %d/%d".format(item.count, item.maxCount));
+     *     print(`${item.displayName} (${item.name})`);
+     *     print(`Count: ${item.count}/${item.maxCount}`);
      *
      *     for (const group of item.itemGroups) {
-     *         print("Group: %s".format(group.displayName));
+     *         print(`Group: ${group.displayName}`);
      *     }
      *
      *     if (item.damage) {
-     *         print("Damage: %d/%d".format(item.damage, item.maxDamage));
+     *         print(`Damage: ${item.damage}/${item.maxDamage}`);
      *     }
      *
      * @param slot The slot to get information about.
@@ -117,8 +117,8 @@ declare interface InventoryPeripheral extends Peripheral {
      *
      *     chest_a.pushItems(peripheral.getName(chest_b), 1);
      *
-     * @param toName The name of the peripheral/inventory to push to. This is the string given to `peripheral.wrap`, and
-     *   displayed by the wired modem.
+     * @param toName The name of the peripheral/inventory to push to. This is the string given to
+     *   {@link peripheral.wrap}, and displayed by the wired modem.
      * @param fromSlot The slot in the current inventory to move items to.
      * @param [limit] The maximum number of items to move. Defaults to the current stack limit.
      * @param [toSlot] The slot in the target inventory to move to. If not given, the item will be inserted into any
@@ -126,7 +126,7 @@ declare interface InventoryPeripheral extends Peripheral {
      * @returns The number of transferred items.
      * @throws If the peripheral to transfer to doesn't exist or isn't an inventory.
      * @throws If either source or destination slot is out of range.
-     * @see peripheral.getName Allows you to get the name of a wrapped peripheral.
+     * @see {@link peripheral.getName} Allows you to get the name of a wrapped peripheral.
      */
     pushItems(toName: string, fromSlot: number, limit?: number, toSlot?: number): number;
 
@@ -149,9 +149,9 @@ declare interface InventoryPeripheral extends Peripheral {
      * @param [toSlot] The slot in current inventory to move to. If not given, the item will be inserted into any slot.
      * @returns The number of transferred items.
      * @throws If the peripheral to transfer to doesn't exist or isn't an inventory.
-     * @throws If either source or destination slot is out of range. `peripheral.wrap`, and displayed by the wired
+     * @throws If either source or destination slot is out of range. {@link peripheral.wrap}, and displayed by the wired
      *   modem.
-     * @see peripheral.getName Allows you to get the name of a wrapped peripheral.
+     * @see {@link peripheral.getName} Allows you to get the name of a wrapped peripheral.
      */
     pullItems(fromName: string, fromSlot: number, limit?: number, toSlot?: number): number;
 }

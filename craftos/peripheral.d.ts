@@ -6,8 +6,8 @@
  * Find and control peripherals attached to this computer.
  *
  * Peripherals are blocks (or turtle and pocket computer upgrades) which can be controlled by a computer. For instance,
- * the speaker peripheral allows a computer to play music and the monitor peripheral allows you to display text in the
- * world.
+ * the {@link SpeakerPeripheral speaker} peripheral allows a computer to play music and the
+ * {@link MonitorPeripheral monitor} peripheral allows you to display text in the world.
  *
  * ### Referencing peripherals
  *
@@ -15,33 +15,34 @@
  * For instance, a disk drive below your computer will be called `"bottom"` in your Lua code, one to the left called
  * `"left"` , and so on for all 6 directions (`"bottom"`, `"top"`, `"left"`, `"right"`, `"front"`, `"back"`).
  *
- * You can list the names of all peripherals with the `peripherals` program, or the `peripheral.getNames` function.
+ * You can list the names of all peripherals with the `peripherals` program, or the {@link peripheral.getNames} function.
  *
- * It's also possible to use peripherals which are further away from your computer through the use of Wired Modems.
- * Place one modem against your computer (you may need to sneak and right click), run Networking Cable to your
- * peripheral, and then place another modem against that block. You can then right click the modem to use (or _attach_)
- * the peripheral. This will print a peripheral name to chat, which can then be used just like a direction name to
- * access the peripheral. You can click on the message to copy the name to your clipboard.
+ * It's also possible to use peripherals which are further away from your computer through the use of
+ * {@link ModemPeripheral Wired Modems}. Place one modem against your computer (you may need to sneak and right click),
+ * run Networking Cable to your peripheral, and then place another modem against that block. You can then right click
+ * the modem to use (or _attach_) the peripheral. This will print a peripheral name to chat, which can then be used just
+ * like a direction name to access the peripheral. You can click on the message to copy the name to your clipboard.
  *
  * ### Using peripherals
  *
- * Once you have the name of a peripheral, you can call functions on it using the `peripheral.call` function. This takes
- * the name of our peripheral, the name of the function we want to call, and then its arguments.
+ * Once you have the name of a peripheral, you can call functions on it using the {@link peripheral.call} function. This
+ * takes the name of our peripheral, the name of the function we want to call, and then its arguments.
  *
  * #### INFO
  *
- * Some bits of the peripheral API call peripheral functions _methods_ instead (for example, the `peripheral.getMethods`
- * function). Don't worry, they're the same thing!
+ * Some bits of the peripheral API call peripheral functions _methods_ instead (for example, the
+ * {@link peripheral.getMethods} function). Don't worry, they're the same thing!
  *
- * Let's say we have a monitor above our computer (and so "top") and want to write some text to it. We'd write the
- * following:
+ * Let's say we have a monitor above our computer (and so "top") and want to
+ * {@link MonitorPeripheral.write write some text to it}. We'd write the following:
  *
  * ```ts
  * peripheral.call("top", "write", "This is displayed on a monitor!");
  * ```
  *
- * Once you start calling making a couple of peripheral calls this can get very repetitive, and so we can wrap a
- * peripheral. This builds a table of all the peripheral's functions so you can use it like an API or module.
+ * Once you start calling making a couple of peripheral calls this can get very repetitive, and so we can
+ * {@link peripheral.wrap wrap} a peripheral. This builds a table of all the peripheral's functions so you can use it
+ * like an API or module.
  *
  * For instance, we could have written the above example as follows:
  *
@@ -56,40 +57,40 @@
  * For instance, if you're writing a music player, you just need a speaker - it doesn't matter if it's above or below
  * the computer.
  *
- * Thankfully there's a quick way to do this: `peripheral.find`. This takes a peripheral type* and returns all the
+ * Thankfully there's a quick way to do this: {@link peripheral.find}. This takes a peripheral type* and returns all the
  * attached peripherals which are of this type.
  *
  * What is a peripheral type though? This is a string which describes what a peripheral is, and so what functions are
  * available on it. For instance, speakers are just called `"speaker"`, and monitors `"monitor"`. Some peripherals might
  * have more than one type - a Minecraft chest is both a `"minecraft:chest"` and `"inventory"`.
  *
- * You can get all the types a peripheral has with `peripheral.getType`, and check a peripheral is a specific type with
- * `peripheral.hasType`.
+ * You can get all the types a peripheral has with {@link peripheral.getType}, and check a peripheral is a specific type
+ * with {@link peripheral.hasType}.
  *
- * To return to our original example, let's use `peripheral.find` to find an attached speaker:
+ * To return to our original example, let's use {@link peripheral.find} to find an attached speaker:
  *
  * ```ts
- * let speaker = peripheral.find("speaker");
+ * let speaker = peripheral.find<SpeakerPeripheral>("speaker");
  * speaker.playNote("harp");
  * ```
  *
- * | API                                  | Description                                                                  |
- * | ------------------------------------ | ---------------------------------------------------------------------------- |
- * | getNames()                           | Provides a list of all peripherals available.                                |
- * | isPresent(name)                      | Determines if a peripheral is present with the given name.                   |
- * | getType(peripheral)                  | Get the types of a named or wrapped peripheral.                              |
- * | hasType(peripheral, peripheral_type) | Check if a peripheral is of a particular type.                               |
- * | getMethods(name)                     | Get all available methods for the peripheral with the given name.            |
- * | getName(peripheral)                  | Get the name of a peripheral wrapped with `peripheral.wrap`.                 |
- * | call(name, method, ...)              | Call a method on the peripheral with the given name.                         |
- * | wrap(name)                           | Get a table containing all functions available on a peripheral.              |
- * | find(ty [, filter])                  | Find all peripherals of a specific type, and return the wrapped peripherals. |
+ * | API                                                  | Description                                                                  |
+ * | ---------------------------------------------------- | ---------------------------------------------------------------------------- |
+ * | {@link getNames getNames()}                          | Provides a list of all peripherals available.                                |
+ * | {@link isPresent isPresent(name)}                    | Determines if a peripheral is present with the given name.                   |
+ * | {@link getType getType(peripheral)}                  | Get the types of a named or wrapped peripheral.                              |
+ * | {@link hasType hasType(peripheral, peripheral_type)} | Check if a peripheral is of a particular type.                               |
+ * | {@link getMethods getMethods(name)}                  | Get all available methods for the peripheral with the given name.            |
+ * | {@link getName getName(peripheral)}                  | Get the name of a peripheral wrapped with `peripheral.wrap`.                 |
+ * | {@link call call(name, method, ...)}                 | Call a method on the peripheral with the given name.                         |
+ * | {@link wrap wrap(name)}                              | Get a table containing all functions available on a peripheral.              |
+ * | {@link find find(ty [, filter])}                     | Find all peripherals of a specific type, and return the wrapped peripherals. |
  *
  * @since 1.3
  * @changed 1.51 Add support for wired modems.
  * @changed 1.99 Peripherals can have multiple types.
- * @see [peripheral](https://tweaked.cc/event/peripheral.html) This event is fired whenever a new peripheral is attached.
- * @see [peripheral_detach](https://tweaked.cc/event/peripheral_detach.html) This event is fired whenever a peripheral is detached.
+ * @see {@link https://tweaked.cc/event/peripheral.html peripheral} This event is fired whenever a new peripheral is attached.
+ * @see {@link https://tweaked.cc/event/peripheral_detach.html peripheral_detach} This event is fired whenever a peripheral is detached.
  */
 declare namespace peripheral {
     /**
@@ -150,7 +151,7 @@ declare namespace peripheral {
     function getMethods(name: string): string[] | undefined;
 
     /**
-     * Get the name of a peripheral wrapped with `peripheral.wrap`.
+     * Get the name of a peripheral wrapped with {@link peripheral.wrap}.
      *
      * @since 1.88.0
      * @param peripheral The peripheral to get the name of.
@@ -174,11 +175,11 @@ declare namespace peripheral {
 
     /**
      * Get a table containing all functions available on a peripheral. These can then be called instead of using
-     * `peripheral.call` every time.
+     * {@link peripheral.call} every time.
      *
      * @example
      *     // Open the modem on the top of this computer.
-     *     let modem = peripheral.wrap("top");
+     *     let modem = peripheral.wrap<ModemPeripheral>("top");
      *     modem.open(1);
      *
      * @param name The name of the peripheral to wrap.
@@ -188,12 +189,12 @@ declare namespace peripheral {
     function wrap<T extends Peripheral>(name: string): T | undefined;
 
     /**
-     * Find all peripherals of a specific type, and return the wrapped peripherals.
+     * Find all peripherals of a specific type, and return the {@link peripheral.wrap wrapped} peripherals.
      *
      * @since 1.6
      * @example
      *     // Find all wireless modems connected to this computer.
-     *     let modems = peripheral.find("modem", (name, modem) => modem.isWireless()); // Check this modem is wireless.
+     *     let modems = peripheral.find<ModemPeripheral>("modem", (name, modem) => modem.isWireless()); // Check this modem is wireless.
      *
      * @example
      *     // This abuses the `filter` argument to call `rednet.open` on every modem.
@@ -201,7 +202,7 @@ declare namespace peripheral {
      *
      * @example
      *     // Find all monitors and store them in a table, writing "Hello" on each one.
-     *     let monitors = peripheral.find("monitor");
+     *     let monitors = peripheral.find<MonitorPeripheral>("monitor");
      *     for (const monitor of monitors) {
      *         monitor.write("Hello");
      *     }
