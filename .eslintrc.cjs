@@ -18,5 +18,6 @@ module.exports = {
     rules: {
         // Insert changed or disabled rules here, if necessary.
         "jsdoc/check-values": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
     },
 };
