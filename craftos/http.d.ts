@@ -180,6 +180,23 @@ declare interface HTTP {
     ): LuaMultiReturn<[WebSocket, undefined]> | LuaMultiReturn<[false, string]>;
 }
 
+/**
+ * Make HTTP requests, sending and receiving data to a remote web server.
+ *
+ * | API                                                    | Description                                              |
+ * | ------------------------------------------------------ | -------------------------------------------------------- |
+ * | {@link get get(...)}                                   | Make a HTTP GET request to the given url.                |
+ * | {@link post post(...)}                                 | Make a HTTP POST request to the given url.               |
+ * | {@link request request(...)}                           | Asynchronously make a HTTP request to the given url.     |
+ * | {@link checkURLAsync checkURLAsync(url)}               | Asynchronously determine whether a URL can be requested. |
+ * | {@link checkURL checkURL(url)}                         | Determine whether a URL can be requested.                |
+ * | {@link websocketAsync websocketAsync(url [, headers])} | Asynchronously open a websocket.                         |
+ * | {@link websocket websocket(url [, headers])}           | Open a websocket.                                        |
+ *
+ * @see {@link https://tweaked.cc/guide/local_ips.html Allowing access to local IPs} To allow
+ * accessing servers running on your local network.
+ * @since 1.1
+ */
 declare const http: HTTP;
 
 declare type HTTPHeaders = Record<string, string>;

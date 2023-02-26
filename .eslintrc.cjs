@@ -31,7 +31,12 @@ module.exports = {
         "jsdoc/check-tag-names": [
             "warn",
             {
-                definedTags: ["changed", "noSelf", "noSelfInFile"],
+                definedTags: [
+                    "changed",
+                    "noSelf",
+                    "noSelfInFile",
+                    "customConstructor",
+                ],
             },
         ],
     },

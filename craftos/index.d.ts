@@ -5,3 +5,4 @@
 /// <reference path="./peripheral.d.ts" />
 /// <reference path="./turtle.d.ts" />
 /// <reference path="./http.d.ts" />
+/// <reference path="./vector.d.ts" />
