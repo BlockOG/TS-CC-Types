@@ -17,8 +17,8 @@
  * your Lua code, one to the left called `"left"` , and so on for all 6 directions (`"bottom"`,
  * `"top"`, `"left"`, `"right"`, `"front"`, `"back"`).
  *
- * You can list the names of all peripherals with the `peripherals` program, or the {@link
- * peripheral.getNames} function.
+ * You can list the names of all peripherals with the `peripherals` program, or the
+ * {@link peripheral.getNames} function.
  *
  * It's also possible to use peripherals which are further away from your computer through the use
  * of {@link ModemPeripheral Wired Modems}. Place one modem against your computer (you may need to
@@ -29,17 +29,17 @@
  *
  * ### Using peripherals
  *
- * Once you have the name of a peripheral, you can call functions on it using the {@link
- * peripheral.call} function. This takes the name of our peripheral, the name of the function we
- * want to call, and then its arguments.
+ * Once you have the name of a peripheral, you can call functions on it using the
+ * {@link peripheral.call} function. This takes the name of our peripheral, the name of the function
+ * we want to call, and then its arguments.
  *
  * #### INFO
  *
  * Some bits of the peripheral API call peripheral functions _methods_ instead (for example, the
  * {@link peripheral.getMethods} function). Don't worry, they're the same thing!
  *
- * Let's say we have a monitor above our computer (and so "top") and want to {@link
- * MonitorPeripheral.write write some text to it}. We'd write the following:
+ * Let's say we have a monitor above our computer (and so "top") and want to
+ * {@link MonitorPeripheral.write write some text to it}. We'd write the following:
  *
  * ```ts
  * peripheral.call("top", "write", "This is displayed on a monitor!");
@@ -239,8 +239,8 @@ declare interface Peripheral {
  * your Lua code, one to the left called `"left"` , and so on for all 6 directions (`"bottom"`,
  * `"top"`, `"left"`, `"right"`, `"front"`, `"back"`).
  *
- * You can list the names of all peripherals with the `peripherals` program, or the {@link
- * peripheral.getNames} function.
+ * You can list the names of all peripherals with the `peripherals` program, or the
+ * {@link peripheral.getNames} function.
  *
  * It's also possible to use peripherals which are further away from your computer through the use
  * of {@link ModemPeripheral Wired Modems}. Place one modem against your computer (you may need to
@@ -251,17 +251,17 @@ declare interface Peripheral {
  *
  * ### Using peripherals
  *
- * Once you have the name of a peripheral, you can call functions on it using the {@link
- * peripheral.call} function. This takes the name of our peripheral, the name of the function we
- * want to call, and then its arguments.
+ * Once you have the name of a peripheral, you can call functions on it using the
+ * {@link peripheral.call} function. This takes the name of our peripheral, the name of the function
+ * we want to call, and then its arguments.
  *
  * #### INFO
  *
  * Some bits of the peripheral API call peripheral functions _methods_ instead (for example, the
  * {@link peripheral.getMethods} function). Don't worry, they're the same thing!
  *
- * Let's say we have a monitor above our computer (and so "top") and want to {@link
- * MonitorPeripheral.write write some text to it}. We'd write the following:
+ * Let's say we have a monitor above our computer (and so "top") and want to
+ * {@link MonitorPeripheral.write write some text to it}. We'd write the following:
  *
  * ```ts
  * peripheral.call("top", "write", "This is displayed on a monitor!");

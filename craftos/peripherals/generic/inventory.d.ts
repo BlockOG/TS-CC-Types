@@ -28,8 +28,8 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      * List all items in this inventory. This returns a table, with an entry for each slot.
      *
      * Each item in the inventory is represented by a table containing some basic information, much
-     * like {@link turtle.getItemDetail} includes. More information can be fetched with {@link
-     * getItemDetail}. The table contains the item `name`, the `count` and an a (potentially
+     * like {@link turtle.getItemDetail} includes. More information can be fetched with
+     * {@link getItemDetail}. The table contains the item `name`, the `count` and an a (potentially
      * undefined) hash of the item's `nbt`. This NBT data doesn't contain anything useful, but
      * allows you to distinguish identical items.
      *

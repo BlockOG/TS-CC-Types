@@ -39,7 +39,8 @@ declare interface OS {
      * through the use of `myAPI.<function name>`, where `myAPI` is the base name of the API file.
      *
      * @deprecated When possible it's best to avoid using this function. It pollutes the global
-     *             table and can mask errors. `import` should be used to load libraries instead.
+     *             table and can mask errors. `import` syntax should be used to load libraries
+     *             instead.
      * @since 1.2
      * @param path The path of the API to load.
      * @returns Whether or not the API was successfully loaded.
@@ -47,11 +48,11 @@ declare interface OS {
     loadAPI(path: string): boolean;
 
     /**
-     * Unloads an API which was loaded by `os.loadAPI`.
+     * Unloads an API which was loaded by {@link os.loadAPI}.
      *
      * This effectively removes the specified table from `_G`.
      *
-     * @deprecated See `os.loadAPI` for why.
+     * @deprecated See {@link os.loadAPI} for why.
      * @since 1.2
      * @param name The name of the API to unload.
      */
@@ -59,10 +60,10 @@ declare interface OS {
 
     /**
      * Pause execution of the current thread and waits for any events matching `filter`. This
-     * function `yields` the current process and waits for it to be resumed with a vararg list where
-     * the first element matches `filter`. If no `filter` is supplied, this will match all events.
-     * Unlike `os.pullEventRaw`, it will stop the application upon a "terminate" event, printing the
-     * error "Terminated".
+     * function {@link coroutine.yield yields} the current process and waits for it to be resumed
+     * with a vararg list where the first element matches `filter`. If no `filter` is supplied, this
+     * will match all events. Unlike {@link os.pullEventRaw}, it will stop the application upon a
+     * "terminate" event, printing the error "Terminated".
      *
      * @example
      *     // Listen for `mouse_click` events.
@@ -91,7 +92,7 @@ declare interface OS {
 
     /**
      * Pause execution of the current thread and waits for events, including the `terminate` event.
-     * This behaves almost the same as `os.pullEvent`, except it allows you to handle the
+     * This behaves almost the same as {@link os.pullEvent}, except it allows you to handle the
      * `terminate` event yourself - the program will not stop execution when `Ctrl+T` is pressed.
      *
      * @example
@@ -110,7 +111,7 @@ declare interface OS {
     pullEventRaw(filter?: string): LuaMultiReturn<[string, ...unknown[]]>;
 
     /**
-     * Pauses execution for the specified number of seconds, alias of `_G.sleep`.
+     * Pauses execution for the specified number of seconds, alias of {@link _G.sleep}.
      *
      * @param [time] The number of seconds to sleep for, rounded up to the nearest multiple of 0.05.
      */
@@ -133,10 +134,10 @@ declare interface OS {
      *
      * This function does not resolve program names like the shell does. This means that, for
      * example, `os.run("edit")` will not work. As well as this, it does not provide access to the
-     * `shell` API in the environment. For this behaviour, use `shell.run` instead.
+     * {@link shell} API in the environment. For this behaviour, use {@link shell.run} instead.
      *
      * If the program cannot be found, or failed to run, it will print the error and return `false`.
-     * If you want to handle this more gracefully, use an alternative such as `loadfile`.
+     * If you want to handle this more gracefully, use an alternative such as {@link loadfile}.
      *
      * @example
      *     // Run the default shell from within your program:
@@ -145,8 +146,8 @@ declare interface OS {
      * @param path The exact path of the program to run.
      * @param args The arguments to pass to the program.
      * @returns Whether or not the program ran successfully.
-     * @see shell.run
-     * @see loadfile
+     * @see {@link shell.run}
+     * @see {@link loadfile}
      */
     run(
         env: Record<string, unknown>,
@@ -159,7 +160,7 @@ declare interface OS {
      *
      * @param name The name of the event to queue.
      * @param args The parameters of the event.
-     * @see os.pullEvent To pull the event queued
+     * @see {@link os.pullEvent} To pull the event queued.
      */
     queueEvent(name: string, ...args: unknown[]): void;
 
@@ -175,7 +176,7 @@ declare interface OS {
      * @returns The ID of the new timer. This can be used to filter the `timer` event, or cancel the
      *          timer.
      * @throws If the time is below zero.
-     * @see os.cancelTimer To cancel a timer.
+     * @see {@link os.cancelTimer} To cancel a timer.
      */
     startTimer(timer: number): number;
 
@@ -183,7 +184,7 @@ declare interface OS {
      * Cancels a timer previously started with startTimer. This will stop the timer from firing.
      *
      * @param token The ID of the timer to cancel.
-     * @see os.startTimer To start a timer.
+     * @see {@link os.startTimer} To start a timer.
      */
     cancelTimer(token: number): void;
 
@@ -197,7 +198,7 @@ declare interface OS {
      * @returns The ID of the new alarm. This can be used to filter the `alarm` event, or cancel the
      *          alarm.
      * @throws If the time is out of range.
-     * @see os.cancelAlarm To cancel an alarm.
+     * @see {@link os.cancelAlarm} To cancel an alarm.
      */
     setAlarm(time: number): number;
 
@@ -206,7 +207,7 @@ declare interface OS {
      *
      * @since 1.2
      * @param token The ID of the alarm to cancel.
-     * @see os.setAlarm To set an alarm.
+     * @see {@link os.setAlarm} To set an alarm.
      */
     cancelAlarm(token: number): void;
 
@@ -287,8 +288,8 @@ declare interface OS {
      * @changed 1.80pr1 Add support for getting the local local and UTC time.
      * @changed 1.82.0 Arguments are now case insensitive.
      * @changed 1.83.0 os.time now accepts table arguments and converts them to UNIX timestamps.
-     * @see textutils.formatTime To convert times into a user-readable string.
-     * @see os.date To get a date table that can be converted with this function.
+     * @see {@link textutils.formatTime} To convert times into a user-readable string.
+     * @see {@link os.date} To get a date table that can be converted with this function.
      */
     time(args?: "ingame" | "local" | "utc" | Record<string, unknown>): number;
 

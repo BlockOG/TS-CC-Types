@@ -20,6 +20,7 @@ module.exports = {
         "jsdoc/check-values": "off",
         "no-underscore-dangle": "off",
         "@typescript-eslint/triple-slash-reference": "off",
+        "no-restricted-globals": "off",
         /**
          * Documentation:
          * https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names

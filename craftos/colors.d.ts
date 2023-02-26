@@ -1,21 +1,21 @@
 /** @noSelfInFile */
 
 /**
- * Constants and functions for color values, suitable for working with {@link term} and {@link
- * redstone}.
+ * Constants and functions for color values, suitable for working with {@link term} and
+ * {@link redstone}.
  *
  * This is useful in conjunction with {@link redstone.setBundledOutput Bundled Cables} from mods
- * like Project Red, and {@link term.setTextColor colors on Advanced Computers and Advanced
- * Monitors}.
+ * like Project Red, and
+ * {@link term.setTextColor colors on Advanced Computers and Advanced Monitors}.
  *
  * For the non-American English version just replace {@link colors} with {@link colours}. This
- * alternative API is exactly the same, except the colours use British English (e.g. {@link
- * colors.gray} is spelt {@link colours.grey}).
+ * alternative API is exactly the same, except the colours use British English (e.g.
+ * {@link colors.gray} is spelt {@link colours.grey}).
  *
  * On basic terminals (such as the Computer and Monitor), all the colors are converted to grayscale.
  * This means you can still use all 16 colors on the screen, but they will appear as the nearest
- * tint of gray. You can check if a terminal supports color by using the function {@link
- * term.isColor}.
+ * tint of gray. You can check if a terminal supports color by using the function
+ * {@link term.isColor}.
  *
  * Grayscale colors are calculated by taking the average of the three components, i.e. `(red + green
  * + blue) / 3`.
@@ -239,21 +239,21 @@ declare interface Colors {
 }
 
 /**
- * Constants and functions for color values, suitable for working with {@link term} and {@link
- * redstone}.
+ * Constants and functions for color values, suitable for working with {@link term} and
+ * {@link redstone}.
  *
  * This is useful in conjunction with {@link redstone.setBundledOutput Bundled Cables} from mods
- * like Project Red, and {@link term.setTextColor colors on Advanced Computers and Advanced
- * Monitors}.
+ * like Project Red, and
+ * {@link term.setTextColor colors on Advanced Computers and Advanced Monitors}.
  *
  * For the non-American English version just replace {@link colors} with {@link colours}. This
- * alternative API is exactly the same, except the colours use British English (e.g. {@link
- * colors.gray} is spelt {@link colours.grey}).
+ * alternative API is exactly the same, except the colours use British English (e.g.
+ * {@link colors.gray} is spelt {@link colours.grey}).
  *
  * On basic terminals (such as the Computer and Monitor), all the colors are converted to grayscale.
  * This means you can still use all 16 colors on the screen, but they will appear as the nearest
- * tint of gray. You can check if a terminal supports color by using the function {@link
- * term.isColor}.
+ * tint of gray. You can check if a terminal supports color by using the function
+ * {@link term.isColor}.
  *
  * Grayscale colors are calculated by taking the average of the three components, i.e. `(red + green
  * + blue) / 3`.

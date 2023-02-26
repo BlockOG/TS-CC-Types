@@ -21,8 +21,9 @@ declare const _G: typeof globalThis;
  * Pauses execution for the specified number of seconds.
  *
  * As it waits for a fixed amount of world ticks, `time` will automatically be rounded up to the
- * nearest multiple of 0.05 seconds. If you are using coroutines or the {@link parallel parallel
- * API}, it will only pause execution of the current thread, not the whole program.
+ * nearest multiple of 0.05 seconds. If you are using coroutines or the
+ * {@link parallel parallel API}, it will only pause execution of the current thread, not the whole
+ * program.
  *
  * #### TIP
  *
@@ -54,8 +55,7 @@ declare function sleep(time?: number): void;
  *     write("Hello, world");
  * @param text The text to write to the string.
  * @returns The number of lines written.
- * @see {@link _G.print print} A wrapper around write that adds a newline and accepts multiple
- *      arguments.
+ * @see {@link print} A wrapper around write that adds a newline and accepts multiple arguments.
  */
 declare function write(text: string): number;
 
@@ -116,7 +116,7 @@ declare function printError(...args: unknown[]): void;
  * @returns The text typed in.
  * @changed 1.74 Added `completeFn` parameter.
  * @changed 1.80pr1 Added `default` parameter.
- * @see cc.completion For functions to help with completion.
+ * @see {@link cc.completion} For functions to help with completion.
  */
 declare function read(
     replaceChar?: string,
@@ -128,8 +128,8 @@ declare function read(
 /**
  * Stores the current ComputerCraft and Minecraft versions.
  *
- * Outside of Minecraft (for instance, in an emulator) _HOST will contain the emulator's version
- * instead.
+ * Outside of Minecraft (for instance, in an emulator) {@link _HOST} will contain the emulator's
+ * version instead.
  *
  * For example, `ComputerCraft 1.93.0 (Minecraft 1.15.2)`.
  *

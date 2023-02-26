@@ -12,18 +12,19 @@
  *
  * {@link Turtle.forward} and {@link turtle.back} move the turtle in the direction it is facing,
  * while {@link turtle.up} and {@link turtle.down} move it up and down (as one might expect!). In
- * order to move left or right, you first need to turn the turtle using {@link
- * turtle.turnLeft}/{@link turtle.turnRight} and then move forward or backwards.
+ * order to move left or right, you first need to turn the turtle using
+ * {@link turtle.turnLeft}/{@link turtle.turnRight} and then move forward or backwards.
  *
  * #### INFO
  *
- * The name "turtle" comes from {@link https://en.wikipedia.org/wiki/Turtle_graphics Turtle
- * graphics}, which originated from the Logo programming language. Here you'd move a turtle with
- * various commands like "move 10" and "turn left", much like ComputerCraft's turtles!
+ * The name "turtle" comes from
+ * {@link https://en.wikipedia.org/wiki/Turtle_graphics Turtle graphics}, which originated from the
+ * Logo programming language. Here you'd move a turtle with various commands like "move 10" and
+ * "turn left", much like ComputerCraft's turtles!
  *
- * Moving a turtle (though not turning it) consumes _fuel_. If a turtle does not have any {@link
- * turtle.refuel fuel}, it won't move, and the movement functions will return `false`. If your
- * turtle isn't going anywhere, the first thing to check is if you've fuelled your turtle.
+ * Moving a turtle (though not turning it) consumes _fuel_. If a turtle does not have any
+ * {@link turtle.refuel fuel}, it won't move, and the movement functions will return `false`. If
+ * your turtle isn't going anywhere, the first thing to check is if you've fuelled your turtle.
  *
  * #### HANDLING ERRORS
  *
@@ -42,14 +43,14 @@
  * one on the left and right sides. Upgrades can be equipped by crafting a turtle with the upgrade,
  * or calling the {@link turtle.equipLeft}/{@link turtle.equipRight} functions.
  *
- * Turtle tools allow you to break blocks ({@link turtle.dig}) and attack entities ({@link
- * turtle.attack}). Some tools are more suitable to a task than others. For instance, a diamond
- * pickaxe can break every block, while a sword does more damage. Other tools have more niche
- * use-cases, for instance hoes can til dirt.
+ * Turtle tools allow you to break blocks ({@link turtle.dig}) and attack entities
+ * ({@link turtle.attack}). Some tools are more suitable to a task than others. For instance, a
+ * diamond pickaxe can break every block, while a sword does more damage. Other tools have more
+ * niche use-cases, for instance hoes can til dirt.
  *
- * Peripherals (such as the {@link ModemPeripheral wireless modem} or {@link SpeakerPeripheral
- * speaker}) can also be equipped as upgrades. These are then accessible by accessing the `"left"`
- * or `"right"` peripheral.
+ * Peripherals (such as the {@link ModemPeripheral wireless modem} or
+ * {@link SpeakerPeripheral speaker}) can also be equipped as upgrades. These are then accessible by
+ * accessing the `"left"` or `"right"` peripheral.
  *
  * | API                                                     | Description                                                                                                                         |
  * | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
@@ -643,18 +644,19 @@ declare interface Turtle {
  *
  * {@link Turtle.forward} and {@link turtle.back} move the turtle in the direction it is facing,
  * while {@link turtle.up} and {@link turtle.down} move it up and down (as one might expect!). In
- * order to move left or right, you first need to turn the turtle using {@link
- * turtle.turnLeft}/{@link turtle.turnRight} and then move forward or backwards.
+ * order to move left or right, you first need to turn the turtle using
+ * {@link turtle.turnLeft}/{@link turtle.turnRight} and then move forward or backwards.
  *
  * #### INFO
  *
- * The name "turtle" comes from {@link https://en.wikipedia.org/wiki/Turtle_graphics Turtle
- * graphics}, which originated from the Logo programming language. Here you'd move a turtle with
- * various commands like "move 10" and "turn left", much like ComputerCraft's turtles!
+ * The name "turtle" comes from
+ * {@link https://en.wikipedia.org/wiki/Turtle_graphics Turtle graphics}, which originated from the
+ * Logo programming language. Here you'd move a turtle with various commands like "move 10" and
+ * "turn left", much like ComputerCraft's turtles!
  *
- * Moving a turtle (though not turning it) consumes _fuel_. If a turtle does not have any {@link
- * turtle.refuel fuel}, it won't move, and the movement functions will return `false`. If your
- * turtle isn't going anywhere, the first thing to check is if you've fuelled your turtle.
+ * Moving a turtle (though not turning it) consumes _fuel_. If a turtle does not have any
+ * {@link turtle.refuel fuel}, it won't move, and the movement functions will return `false`. If
+ * your turtle isn't going anywhere, the first thing to check is if you've fuelled your turtle.
  *
  * #### HANDLING ERRORS
  *
@@ -673,14 +675,14 @@ declare interface Turtle {
  * one on the left and right sides. Upgrades can be equipped by crafting a turtle with the upgrade,
  * or calling the {@link turtle.equipLeft}/{@link turtle.equipRight} functions.
  *
- * Turtle tools allow you to break blocks ({@link turtle.dig}) and attack entities ({@link
- * turtle.attack}). Some tools are more suitable to a task than others. For instance, a diamond
- * pickaxe can break every block, while a sword does more damage. Other tools have more niche
- * use-cases, for instance hoes can til dirt.
+ * Turtle tools allow you to break blocks ({@link turtle.dig}) and attack entities
+ * ({@link turtle.attack}). Some tools are more suitable to a task than others. For instance, a
+ * diamond pickaxe can break every block, while a sword does more damage. Other tools have more
+ * niche use-cases, for instance hoes can til dirt.
  *
- * Peripherals (such as the {@link ModemPeripheral wireless modem} or {@link SpeakerPeripheral
- * speaker}) can also be equipped as upgrades. These are then accessible by accessing the `"left"`
- * or `"right"` peripheral.
+ * Peripherals (such as the {@link ModemPeripheral wireless modem} or
+ * {@link SpeakerPeripheral speaker}) can also be equipped as upgrades. These are then accessible by
+ * accessing the `"left"` or `"right"` peripheral.
  *
  * | API                                                            | Description                                                                                                                         |
  * | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
