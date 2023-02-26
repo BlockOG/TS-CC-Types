@@ -264,6 +264,7 @@ declare type ResponseOrFail =
  * A websocket, which can be used to send an receive messages with a web server.
  *
  * @see {@link http.websocket} On how to open a websocket.
+ * @noSelf
  */
 declare interface WebSocket {
     /**
