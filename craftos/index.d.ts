@@ -4,3 +4,4 @@
 /// <reference path="./os.d.ts" />
 /// <reference path="./peripheral.d.ts" />
 /// <reference path="./turtle.d.ts" />
+/// <reference path="./http.d.ts" />

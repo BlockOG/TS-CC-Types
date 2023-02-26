@@ -737,7 +737,7 @@ declare interface Turtle {
 declare const turtle: Turtle | undefined;
 
 declare type SuccessOrError =
-    | LuaMultiReturn<[true]>
+    | LuaMultiReturn<[true, undefined]>
     | LuaMultiReturn<[false, string]>;
 declare type ToolSide = "left" | "right";
 
