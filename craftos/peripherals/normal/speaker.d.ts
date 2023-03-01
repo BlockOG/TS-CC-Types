@@ -43,8 +43,8 @@ declare interface SpeakerPeripheral extends AnyPeripheral {
      * `"banjo"` and `"pling"`.
      *
      * @param instrumentA The instrument to use to play this note.
-     * @param volumeA The volume to play the note at, from 0.0 to 3.0. Defaults to 1.0.
-     * @param pitchA The pitch to play the note at in semitones, from 0 to 24. Defaults to 12.
+     * @param [volumeA] The volume to play the note at, from 0.0 to 3.0. Defaults to 1.0.
+     * @param [pitchA] The pitch to play the note at in semitones, from 0 to 24. Defaults to 12.
      * @returns Whether the note could be played as the limit was reached.
      * @throws If the instrument doesn't exist.
      */
@@ -81,8 +81,8 @@ declare interface SpeakerPeripheral extends AnyPeripheral {
      * started this tick, or if some {@link playAudio audio} is still playing.
      *
      * @param name The name of the sound to play.
-     * @param volumeA The volume to play the sound at, from 0.0 to 3.0. Defaults to 1.0.
-     * @param pitchA The speed to play the sound at, from 0.5 to 2.0. Defaults to 1.0.
+     * @param [volumeA] The volume to play the sound at, from 0.0 to 3.0. Defaults to 1.0.
+     * @param [pitchA] The speed to play the sound at, from 0.5 to 2.0. Defaults to 1.0.
      * @returns Whether the sound could be played.
      * @throws If the sound name was invalid.
      * @example
@@ -112,8 +112,8 @@ declare interface SpeakerPeripheral extends AnyPeripheral {
      * more complete guide to using speakers.
      *
      * @param audio A list of amplitudes.
-     * @param volume The volume to play this audio at. If not given, defaults to the previous volume
-     *               given to {@link playAudio}.
+     * @param [volume] The volume to play this audio at. If not given, defaults to the previous
+     *        volume given to {@link playAudio}.
      * @returns If there was room to accept this audio data.
      * @throws If the audio data is malformed.
      * @since 1.100
