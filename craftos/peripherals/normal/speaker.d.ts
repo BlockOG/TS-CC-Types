@@ -17,6 +17,7 @@
  * | {@link stop stop()}                                        | Stop all audio being played by this speaker.      |
  *
  * @since 1.80pr1
+ * @noSelf
  */
 declare interface SpeakerPeripheral extends AnyPeripheral {
     /**
