@@ -19,8 +19,9 @@ module.exports = {
         // Insert changed or disabled rules here, if necessary.
         "jsdoc/check-values": "off",
         "no-underscore-dangle": "off",
-        "@typescript-eslint/triple-slash-reference": "off",
         "no-restricted-globals": "off",
+        "@typescript-eslint/triple-slash-reference": "off",
+        "@typescript-eslint/no-throw-literal": "off",
         /**
          * Documentation:
          * https://github.com/gajus/eslint-plugin-jsdoc#check-tag-names
