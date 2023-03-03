@@ -6,3 +6,4 @@
 /// <reference path="./turtle.d.ts" />
 /// <reference path="./http.d.ts" />
 /// <reference path="./vector.d.ts" />
+/// <reference path="./term.d.ts" />

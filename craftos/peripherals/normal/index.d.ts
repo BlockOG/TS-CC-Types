@@ -4,3 +4,4 @@
 /// <reference path="./command.d.ts" />
 /// <reference path="./printer.d.ts" />
 /// <reference path="./modem.d.ts" />
+/// <reference path="./monitor.d.ts" />
