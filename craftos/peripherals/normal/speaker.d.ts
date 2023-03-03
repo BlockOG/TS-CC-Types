@@ -120,11 +120,15 @@ declare interface SpeakerPeripheral extends AnyPeripheral {
      * @example
      *     // Read an audio file, decode it using `cc.audio.dfpwm`, and play it using the speaker.
      *     import * as dfpwm from "cc.audio.dfpwm";
-     *     let speaker = peripheral.find<SpeakerPeripheral>("speaker");
      *
-     *     let decoder = dfpwm.make_decoder();
+     *     const speaker = peripheral.find<SpeakerPeripheral>("speaker")[0];
+     *     if (speaker === undefined) {
+     *         throw "No speaker found";
+     *     }
+     *
+     *     const decoder = dfpwm.make_decoder();
      *     for (const chunk of io.lines("data/example.dfpwm", 16 * 1024)) {
-     *         let buffer = decoder(chunk);
+     *         const buffer = decoder(chunk);
      *
      *         while (!speaker.playAudio(buffer)) {
      *             os.pullEvent("speaker_audio_empty");

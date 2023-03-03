@@ -37,7 +37,7 @@ declare interface HTTP {
      * @changed 1.86.0 Added PATCH and TRACE methods.
      * @example
      *     // Make a request to https://example.tweaked.cc, and print the returned page.
-     *     let request = http.get("https://example.tweaked.cc");
+     *     const request = http.get("https://example.tweaked.cc");
      *     print(request.readAll());
      *     // => HTTP is working!
      *     request.close();

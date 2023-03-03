@@ -38,8 +38,11 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      *
      * @example
      *     // Find an adjacent chest and print all items in it.
-     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
-     *     for (let [slot, item] of pairs(chest.list())) {
+     *     const chest = peripheral.find<InventoryPeripheral>("minecraft:chest")[0];
+     *     if (chest === undefined) {
+     *         throw "No chest";
+     *     }
+     *     for (const [slot, item] of pairs(chest.list())) {
      *         print(`${item.count} x ${item.name} in slot ${slot}`);
      *     }
      * @param inventory The current inventory.
@@ -60,11 +63,13 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      *
      * @example
      *     // Print some information about the first in a chest.
-     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
-     *     let item = chest.getItemDetail(1);
-     *     if (item == undefined) {
-     *         print("No item");
-     *         return;
+     *     const chest = peripheral.find<InventoryPeripheral>("minecraft:chest")[0];
+     *     if (chest === undefined) {
+     *         throw "No chest";
+     *     }
+     *     const item = chest.getItemDetail(1);
+     *     if (item === undefined) {
+     *         throw "No item";
      *     }
      *
      *     print(`${item.displayName} (${item.name})`);
@@ -74,7 +79,7 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      *         print(`Group: ${group.displayName}`);
      *     }
      *
-     *     if (item.damage) {
+     *     if (item.damage !== undefined) {
      *         print(`Damage: ${item.damage}/${item.maxDamage}`);
      *     }
      * @param slot The slot to get information about.
@@ -92,7 +97,10 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      * @since 1.96.0
      * @example
      *     // Count the maximum number of items an adjacent chest can hold.
-     *     let [chest] = peripheral.find<InventoryPeripheral>("minecraft:chest");
+     *     const chest = peripheral.find<InventoryPeripheral>("minecraft:chest")[0];
+     *     if (chest === undefined) {
+     *         throw "No chest";
+     *     }
      *     let total = 0;
      *     for (let i = 1; i <= chest.size(); i++) {
      *         total += chest.getItemLimit(i);
@@ -112,10 +120,13 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      *
      * @example
      *     // Wrap two chests, and push an item from one to another.
-     *     let chest_a = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
-     *     let chest_b = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
+     *     const chestA = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
+     *     const chestB = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
+     *     if (chestA === undefined || chestB === undefined) {
+     *         throw "Chests not found";
+     *     }
      *
-     *     chest_a.pushItems(peripheral.getName(chest_b), 1);
+     *     chestA.pushItems(peripheral.getName(chestB), 1);
      * @param toName The name of the peripheral/inventory to push to. This is the string given to
      *               {@link peripheral.wrap}, and displayed by the wired modem.
      * @param fromSlot The slot in the current inventory to move items to.
@@ -142,10 +153,13 @@ declare interface InventoryPeripheral extends AnyPeripheral {
      *
      * @example
      *     // Wrap two chests, and push an item from one to another.
-     *     let chest_a = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
-     *     let chest_b = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
+     *     const chestA = peripheral.wrap<InventoryPeripheral>("minecraft:chest_0");
+     *     const chestB = peripheral.wrap<InventoryPeripheral>("minecraft:chest_1");
+     *     if (chestA === undefined || chestB === undefined) {
+     *         throw "Chests not found";
+     *     }
      *
-     *     chest_a.pullItems(peripheral.getName(chest_b), 1);
+     *     chestA.pullItems(peripheral.getName(chestB), 1);
      * @param fromName The name of the peripheral/inventory to pull from. This is the string given
      *                 to.
      * @param fromSlot The slot in the source inventory to move items from.
@@ -175,6 +189,7 @@ declare interface BasicItem {
 /** @noSelf */
 declare interface DetailedItem extends BasicItem {
     displayName: string;
+    maxCount: number;
     itemGroups: Array<{ id?: string; displayName: string }>;
     rawName: string;
     tags: LuaSet<string>;

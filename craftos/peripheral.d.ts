@@ -52,7 +52,7 @@
  * For instance, we could have written the above example as follows:
  *
  * ```ts
- * let my_monitor = peripheral.wrap("top");
+ * const my_monitor = peripheral.wrap<MonitorPeripheral>("top");
  * my_monitor.write("This is displayed on a monitor!");
  * ```
  *
@@ -76,7 +76,7 @@
  * To return to our original example, let's use {@link peripheral.find} to find an attached speaker:
  *
  * ```ts
- * let speaker = peripheral.find<SpeakerPeripheral>("speaker");
+ * const speaker = peripheral.find<SpeakerPeripheral>("speaker");
  * speaker.playNote("harp");
  * ```
  *
@@ -118,9 +118,9 @@ declare interface Peripheral {
      * Determines if a peripheral is present with the given name.
      *
      * @example
-     *     peripheral.isPresent("top");
+     *     print(peripheral.isPresent("top"));
      * @example
-     *     peripheral.isPresent("monitor_0");
+     *     print(peripheral.isPresent("monitor_0"));
      * @param name The side or network name that you want to check.
      * @returns If a peripheral is present with the given name.
      */
@@ -131,7 +131,7 @@ declare interface Peripheral {
      *
      * @example
      *     // Get the type of a peripheral above this computer.
-     *     peripheral.getType("top");
+     *     print(peripheral.getType("top"));
      * @param peripheral The name of the peripheral to find, or a wrapped peripheral instance.
      * @returns The peripheral's types, or `undefined` if it is not present.
      * @changed 1.88.0 Accepts a wrapped peripheral as an argument.
@@ -188,7 +188,7 @@ declare interface Peripheral {
      *
      * @example
      *     // Open the modem on the top of this computer.
-     *     let modem = peripheral.wrap<ModemPeripheral>("top");
+     *     const modem = peripheral.wrap<ModemPeripheral>("top");
      *     modem.open(1);
      * @param name The name of the peripheral to wrap.
      * @returns The table containing the peripheral's methods, or `undefined` if there is no
@@ -203,13 +203,16 @@ declare interface Peripheral {
      * @since 1.6
      * @example
      *     // Find all wireless modems connected to this computer.
-     *     let modems = peripheral.find<ModemPeripheral>("modem", (name, modem) => modem.isWireless()); // Check this modem is wireless.
+     *     const modems = peripheral.find<ModemPeripheral>(
+     *         "modem",
+     *         (_name, modem) => modem.isWireless() // Check this modem is wireless.
+     *     );
      * @example
      *     // This abuses the `filter` argument to call `rednet.open` on every modem.
      *     peripheral.find("modem", rednet.open);
      * @example
      *     // Find all monitors and store them in a table, writing "Hello" on each one.
-     *     let monitors = peripheral.find<MonitorPeripheral>("monitor");
+     *     const monitors = peripheral.find<MonitorPeripheral>("monitor");
      *     for (const monitor of monitors) {
      *         monitor.write("Hello");
      *     }
@@ -221,7 +224,7 @@ declare interface Peripheral {
     find<T extends AnyPeripheral>(
         ty: string,
         filter?: (name: string, peripheral: T) => boolean
-    ): LuaMultiReturn<T[]>;
+    ): LuaMultiReturn<T[]> | LuaMultiReturn<undefined[]>;
 }
 
 /**

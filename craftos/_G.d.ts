@@ -87,24 +87,32 @@ declare function printError(...args: unknown[]): void;
  * @example
  *     // Read a string and echo it back to the user
  *     write("> ");
- *     let msg = read();
+ *     const msg = read();
  *     print(msg);
  * @example
  *     // Prompt a user for a password.
  *     while (true) {
  *         write("Password> ");
- *         let pwd = read("*");
- *         if (pwd == "let me in") break;
+ *         const pwd = read("*");
+ *         if (pwd === "let me in") {
+ *             break;
+ *         }
  *         print("Incorrect password, try again.");
  *     }
  *     print("Logged in!");
  * @example
  *     // A complete example with completion, history and a default value.
  *     import * as completion from "cc.completion";
- *     let history = ["potato", "orange", "apple"];
- *     let choices = ["apple", "orange", "banana", "strawberry"];
+ *
+ *     const history = ["potato", "orange", "apple"];
+ *     const choices = ["apple", "orange", "banana", "strawberry"];
  *     write("> ");
- *     let msg = read(null, history, (text) => completion.choice(text, choices), "app");
+ *     const msg = read(
+ *         undefined,
+ *         history,
+ *         (text) => completion.choice(text, choices),
+ *         "app"
+ *     );
  *     print(msg);
  * @param [replaceChar] A character to replace each typed character with. This can be used for
  *        hiding passwords, for example.
@@ -151,6 +159,6 @@ declare const _HOST: string;
  *
  * @since 1.77
  * @example
- *     _CC_DEFAULT_SETTINGS;
+ *     print(_CC_DEFAULT_SETTINGS);
  */
 declare const _CC_DEFAULT_SETTINGS: string;

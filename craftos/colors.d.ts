@@ -135,7 +135,7 @@ declare interface Colors {
      *
      * @since 1.2
      * @example
-     *     colors.combine(colors.white, colors.magenta, colors.lightBlue);
+     *     print(colors.combine(colors.white, colors.magenta, colors.lightBlue));
      *     // => 13
      * @param colors The colors to combine.
      * @returns The union of the color sets given in `...colors`.
@@ -151,7 +151,7 @@ declare interface Colors {
      *
      * @since 1.2
      * @example
-     *     colors.subtract(colors.lime, colors.orange, colors.white);
+     *     print(colors.subtract(colors.lime, colors.orange, colors.white));
      *     // => 32
      * @param colors The color from which to subtract.
      * @param colors The colors to subtract.
@@ -164,7 +164,12 @@ declare interface Colors {
      *
      * @since 1.2
      * @example
-     *     colors.test(colors.combine(colors.white, colors.magenta, colors.lightBlue), colors.lightBlue);
+     *     print(
+     *         colors.test(
+     *             colors.combine(colors.white, colors.magenta, colors.lightBlue),
+     *             colors.lightBlue
+     *         )
+     *     );
      *     // => true
      * @param colors A color, or color set.
      * @param color A color or set of colors that `colors` should contain.
@@ -177,7 +182,7 @@ declare interface Colors {
      *
      * @since 1.81.0
      * @example
-     *     colors.packRGB(0.7, 0.2, 0.6);
+     *     print(colors.packRGB(0.7, 0.2, 0.6));
      *     // => 0xb23399
      * @param r The red channel, should be between 0 and 1.
      * @param g The red channel, should be between 0 and 1.
@@ -191,7 +196,7 @@ declare interface Colors {
      *
      * @since 1.81.0
      * @example
-     *     colors.unpackRGB(0xb23399);
+     *     print(colors.unpackRGB(0xb23399));
      *     // => 0.7, 0.2, 0.6
      * @param rgb The combined hexadecimal color.
      * @returns The red channel, will be between 0 and 1.
@@ -208,10 +213,10 @@ declare interface Colors {
      * @deprecated Use {@link packRGB} or {@link unpackRGB} directly.
      * @since 1.80pr1
      * @example
-     *     colors.rgb8(0xb23399);
+     *     print(colors.rgb8(0xb23399));
      *     // => 0.7, 0.2, 0.6
      * @example
-     *     colors.rgb8(0.7, 0.2, 0.6);
+     *     print(colors.rgb8(0.7, 0.2, 0.6));
      *     // => 0xb23399
      * @param r The red channel, as an argument to {@link colors.packRGB} or the combined
      *          hexadecimal color, as an argument to {@link colors.unpackRGB}.
@@ -224,7 +229,7 @@ declare interface Colors {
      * @changed 1.81.0 Deprecated in favor of {@link colors.packRGB} or {@link colors.unpackRGB}.
      */
     rgb8(rgb: number): LuaMultiReturn<[number, number, number]>;
-    rgb8(r: number, g: number, b: number): LuaMultiReturn<[number]>;
+    rgb8(r: number, g: number, b: number): number;
 
     /**
      * Converts the given color to a paint/blit hex character (0-9a-f).

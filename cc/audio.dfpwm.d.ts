@@ -36,21 +36,23 @@
  *
  * @since 1.100.0
  * @example
- *     // Reads "data/example.dfpwm" in chunks, decodes them and then doubles the speed of the audio.
- *     // The resulting audio is then re-encoded and saved to "speedy.dfpwm".
- *     // This processed audio can then be played with the `speaker` program.
+ *     // Reads "data/example.dfpwm" in chunks, decodes them and then doubles the speed of the audio. The
+ *     // resulting audio is then re-encoded and saved to "speedy.dfpwm". This processed audio can then be
+ *     // played with the `speaker` program.
  *     import * as dfpwm from "cc.audio.dfpwm";
- *     let encoder = dfpwm.make_encoder();
- *     let decoder = dfpwm.make_decoder();
- *     let out = fs.open("speedy.dfpwm", "wb");
+ *
+ *     const encoder = dfpwm.make_encoder();
+ *     const decoder = dfpwm.make_decoder();
+ *     const out = fs.open("speedy.dfpwm", "wb");
  *     for (const input of io.lines("data/example.dfpwm", 16 * 1024 * 2)) {
- *         let decoded = decoder(input);
- *         let output = new LuaTable();
+ *         const decoded = decoder(input);
+ *         const output: number[] = [];
  *         // Read two samples at once and take the average.
- *         for (let i = 0; i < #decoded; i++) {
- *             let value_1 = decoded[i];
- *             let value_2 = decoded[++i];
- *             output.set(i / 2, (value_1 + value_2) / 2);
+ *         for (let i = 0; i < decoded.length; i++) {
+ *             const value1 = decoded[i];
+ *             i++;
+ *             const value2 = decoded[i];
+ *             output[i / 2 - 1] = (value1 + value2) / 2;
  *         }
  *         out.write(encoder(output));
  *         sleep(); // This program takes a while to run, so we need to make sure we yield.
@@ -101,12 +103,17 @@ declare module "cc.audio.dfpwm" {
      * resulting audio may not sound correct.
      *
      * @example
-     *     // Reads "data/example.dfpwm" in blocks of 16KiB (the speaker can accept a maximum of 128×1024 samples), decodes them and then plays them through the speaker.
+     *     // Reads "data/example.dfpwm" in blocks of 16KiB (the speaker can accept a maximum of 128×1024
+     *     // samples), decodes them and then plays them through the speaker.
      *     import * as dfpwm from "cc.audio.dfpwm";
-     *     let speaker = peripheral.find("speaker");
-     *     let decoder = dfpwm.make_decoder();
+     *
+     *     const speaker = peripheral.find<SpeakerPeripheral>("speaker")[0];
+     *     if (speaker === undefined) {
+     *         throw "No speaker attached";
+     *     }
+     *     const decoder = dfpwm.make_decoder();
      *     for (const input of io.lines("data/example.dfpwm", 16 * 1024)) {
-     *         let decoded = decoder(input);
+     *         const decoded = decoder(input);
      *         while (!speaker.playAudio(decoded)) {
      *             os.pullEvent("speaker_audio_empty");
      *         }

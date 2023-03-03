@@ -392,8 +392,8 @@ declare interface Turtle {
      * Suck an item from the inventory in front of the turtle, or from an item floating in the
      * world.
      *
-     * This will pull items into the first acceptable slot, starting at the {@link select currently
-     * selected} one.
+     * This will pull items into the first acceptable slot, starting at the
+     * {@link select currently selected} one.
      *
      * @since 1.4
      * @param [count] The number of items to suck. If not given, up to a stack of items will be
@@ -455,18 +455,26 @@ declare interface Turtle {
      * @since 1.4
      * @example
      *     // Refuel a turtle from the currently selected slot.
-     *     let level = turtle.getFuelLevel();
-     *     if (level == "unlimited") error("Turtle does not need fuel", 0);
-     *
-     *     let [ok, err] = turtle.refuel();
+     *     const level = turtle.getFuelLevel();
+     *     if (level === "unlimited") {
+     *         throw "Turtle does not need fuel";
+     *     }
+     *     const [ok, err] = turtle.refuel();
      *     if (ok) {
-     *         let new_level = turtle.getFuelLevel();
-     *         print(`Refuelled ${new_level - level}, current level is ${new_level}`);
-     *     } else printError(err);
+     *         const newLevel = turtle.getFuelLevel();
+     *         if (newLevel === "unlimited") {
+     *             throw "Turtle does not need fuel";
+     *         }
+     *         print(`Refuelled ${newLevel - level}, current level is ${newLevel}`);
+     *     } else {
+     *         printError(err);
+     *     }
      * @example
      *     // Check if the current item is a valid fuel source.
-     *     let [is_fuel, reason] = turtle.refuel(0);
-     *     if (!is_fuel) printError(reason);
+     *     const [isFuel, reason] = turtle.refuel(0);
+     *     if (!isFuel) {
+     *         printError(reason);
+     *     }
      * @param [countA] The maximum number of items to consume. One can pass `0` to check if an item
      *        is combustable or not.
      * @returns Whether the turtle was refuelled or not.
@@ -555,14 +563,20 @@ declare interface Turtle {
      *
      * @since 1.64
      * @example
-     *     let [has_block, data] = turtle.inspect();
-     *     if (has_block) print(textutils.serialise(data));
-     *     // {
+     *     const [hasBlock, data] = turtle.inspect();
+     *     if (hasBlock) {
+     *         print(textutils.serialise(data));
+     *     }
+     *
+     *     // ```lua {
      *     //   name = "minecraft:oak_log",
      *     //   state = { axis = "x" },
      *     //   tags = { ["minecraft:logs"] = true, ... },
-     *     // }
-     *     else print("No block in front of the turtle");
+     *     // } ```
+     *
+     *     else {
+     *         print("No block in front of the turtle");
+     *     }
      * @returns Whether there is a block in front of the turtle.
      * @returns Information about the block in front, or a message explaining that there is no
      *          block.
@@ -601,12 +615,14 @@ declare interface Turtle {
      * @example
      *     // Print the current slot, assuming it contains 13 dirt.
      *     print(textutils.serialise(turtle.getItemDetail()));
-     *     // => {
+     *
+     *     // => ```lua {
      *     //  name = "minecraft:dirt",
      *     //  count = 13,
-     *     // }
-     * @param [slot] The slot to get information about. Defaults to the {@link select selected
-     *        slot}.
+     *     // } ```
+     *
+     * @param [slot] The slot to get information about. Defaults to the
+     *        {@link select selected slot}.
      * @param [detailed] Whether to include "detailed" information. When `true` the method will
      *        contain much more information about the item at the cost of taking longer to run.
      * @returns Information about the given slot, or `undefined` if it is empty.

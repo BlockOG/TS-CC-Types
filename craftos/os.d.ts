@@ -68,18 +68,24 @@ declare interface OS {
      * @example
      *     // Listen for `mouse_click` events.
      *     while (true) {
-     *         let [event, button, x, y] = os.pullEvent("mouse_click");
+     *         const [_event, button, x, y] = os.pullEvent("mouse_click");
      *         print("Button", button, "was clicked at", x, ",", y);
      *     }
      * @example
      *     // Listen for multiple events.
      *     while (true) {
-     *         let eventData = os.pullEvent();
-     *         let event = eventData[1];
-     *         if (event == "mouse_click") {
-     *             print("Button", eventData[2], "was clicked at", eventData[3], ",", eventData[4]);
-     *         } else if (event == "key") {
-     *             print("Key code", eventData[2], "was pressed");
+     *         const [event, ...eventData] = os.pullEvent();
+     *         if (event === "mouse_click") {
+     *             print(
+     *                 "Button",
+     *                 eventData[0],
+     *                 "was clicked at",
+     *                 eventData[1],
+     *                 ",",
+     *                 eventData[2]
+     *             );
+     *         } else if (event === "key") {
+     *             print("Key code", eventData[0], "was pressed");
      *         }
      *     }
      * @param [filter] Event to filter for.
@@ -98,8 +104,8 @@ declare interface OS {
      * @example
      *     // Listen for `terminate` events.
      *     while (true) {
-     *         let event = os.pullEventRaw()[0];
-     *         if (event == "terminate") {
+     *         const event = os.pullEventRaw()[0];
+     *         if (event === "terminate") {
      *             print("Caught terminate event!");
      *         }
      *     }
@@ -324,8 +330,8 @@ declare interface OS {
      * @example
      *     // Get the current time and use os.date to convert it to a table.
      *     // Dividing by 1000 converts it from milliseconds to seconds.
-     *     let time = os.epoch("local") / 1000;
-     *     let time_table = os.date("*t", time);
+     *     const time = os.epoch("local") / 1000;
+     *     const time_table = os.date("*t", time);
      *     print(textutils.serialize(time_table));
      * @param [args] The locale to get the milliseconds for. Defaults to `ingame` if not set.
      * @returns The milliseconds since the epoch depending on the selected locale.
@@ -348,7 +354,7 @@ declare interface OS {
      * @since 1.83.0
      * @example
      *     // Print the current date in a user-friendly string.
-     *     os.date("%A %d %B %Y"); // See the reference above!
+     *     print(os.date("%A %d %B %Y")); // See the reference above!
      * @param [formatA] The format of the string to return. This defaults to `%c`, which expands to
      *        a string similar to "Sat Dec 24 16:58:00 2011".
      * @param [timeA] The time to convert to a string. This defaults to the current time.
