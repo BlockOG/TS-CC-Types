@@ -34,6 +34,8 @@
  * | {@link redirect redirect(target)}                       | Redirects terminal output to a monitor, a window, or any other custom terminal object.    |
  * | {@link current current()}                               | Returns the current terminal object of the computer.                                      |
  * | {@link native native()}                                 | Get the native terminal object of the current computer.                                   |
+ *
+ * @noSelf
  */
 declare interface Term extends Redirect {
     /**
@@ -144,12 +146,16 @@ declare interface Term extends Redirect {
  * | {@link redirect redirect(target)}                       | Redirects terminal output to a monitor, a window, or any other custom terminal object.    |
  * | {@link current current()}                               | Returns the current terminal object of the computer.                                      |
  * | {@link native native()}                                 | Get the native terminal object of the current computer.                                   |
+ *
+ * @noSelf
  */
 declare const term: Term;
 
 /**
  * A base class for all objects which interact with a terminal. Namely the {@link term} and
  * monitors.
+ *
+ * @noSelf
  */
 declare interface Redirect {
     /**

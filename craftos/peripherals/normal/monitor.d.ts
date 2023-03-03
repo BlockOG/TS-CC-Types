@@ -43,6 +43,7 @@
  *     const monitor = peripheral.find<MonitorPeripheral>("monitor");
  *     monitor.setCursorPos(1, 1);
  *     monitor.write("Hello, world!");
+ * @noSelf
  */
 declare interface MonitorPeripheral extends AnyPeripheral, Redirect {
     /**
