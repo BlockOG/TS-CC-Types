@@ -4,8 +4,8 @@
  * Monitors are a block which act as a terminal, displaying information on one side. This allows
  * them to be read and interacted with in-world without opening a GUI.
  *
- * Monitors act as {@link term.Redirect terminal redirects} and so expose the same methods, as well
- * as several additional ones, which are documented below.
+ * Monitors act as {@link Redirect terminal redirects} and so expose the same methods, as well as
+ * several additional ones, which are documented below.
  *
  * Like computers, monitors come in both normal (no color) and advanced (color) varieties.
  *
