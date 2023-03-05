@@ -7,3 +7,4 @@
 /// <reference path="./http.d.ts" />
 /// <reference path="./vector.d.ts" />
 /// <reference path="./term.d.ts" />
+/// <reference path="./io.d.ts" />
