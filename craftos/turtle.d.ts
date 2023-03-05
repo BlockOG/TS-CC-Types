@@ -620,9 +620,8 @@ declare interface Turtle {
      *     //  name = "minecraft:dirt",
      *     //  count = 13,
      *     // } ```
-     *
      * @param [slot] The slot to get information about. Defaults to the
-     *        {@link select selected slot}.
+     * {@link select selected slot}.
      * @param [detailed] Whether to include "detailed" information. When `true` the method will
      *        contain much more information about the item at the cost of taking longer to run.
      * @returns Information about the given slot, or `undefined` if it is empty.
